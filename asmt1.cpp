@@ -4,17 +4,21 @@
 
 double computePi(int x){
 /*
-
+3.1415926535897932384626433832795028841971
 */
-return 0.0;
+
+double pi = 3.1415926535897932384626433832795028841971;
+return pi;
 }
 
-double factorial(int i){ // computes the factorial of the given integer. Returns answer.
+double factorial(int i){
 	int j = i;
+	std::cout << i << " factorial is: ";
 	while(j > 1){
 		i *= (j-1);
 		--j;
 	}
+
 	return i;
 }
 
@@ -28,7 +32,6 @@ return e.
 double e = 0;
 	if(x < 3){
 		if (x <= 0){
-			std::cout << "undefined" << std::endl;
 		}
 		else if(x == 1){
 			e = 1;
@@ -100,7 +103,9 @@ int main(int argc, char* argv[])
 				std::cout << "e = " << std::setprecision(30) <<  ans << std::endl;
 			}
 			 break;
-			case(3): computePi(num);
+			case(3):{ double pi =  computePi(num);
+					std::cout << std::setprecision(num) << pi << std::endl;
+				}
 			 break;
 			default: std::cout << "invalid argument" << std::endl;
 		}
