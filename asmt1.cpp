@@ -9,15 +9,12 @@ double computePi(int x){
 return 0.0;
 }
 
-double factorial(int i){
+double factorial(int i){ // computes the factorial of the given integer. Returns answer.
 	int j = i;
-	std::cout << i << " factorial is: ";
 	while(j > 1){
 		i *= (j-1);
 		--j;
 	}
-	std::cout << i << std::endl << std::endl;
-
 	return i;
 }
 
@@ -48,7 +45,6 @@ double e = 0;
 	
 	}
 
-std::cout  << (1/.7) << std::endl;
 return e;
 }
 
