@@ -19,6 +19,16 @@ int computeFibonacci(int x){
 /*
 fibonacci 1 1 2 3 5 8 13 21 
 */
+	int first = 1;
+	int second = 1;
+	std::cout << first << " " << second << " ";
+	int next = 0;
+	for(int i = 0; i < x; ++i){
+		next = first + second;
+		std::cout << next << " ";
+		first = second;
+		second = next;
+	}
 
 
 
