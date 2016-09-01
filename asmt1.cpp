@@ -11,17 +11,6 @@ double pi = 3.1415926535897932384626433832795028841971;
 return pi;
 }
 
-double factorial(int i){
-	int j = i;
-	std::cout << i << " factorial is: ";
-	while(j > 1){
-		i *= (j-1);
-		--j;
-	}
-
-	return i;
-}
-
 double computeE(int x){
 /*
 handle cases up to three and less than 0
@@ -30,22 +19,16 @@ create factorial(int i) function.
 return e.
 */
 double e = 0;
-	if(x < 3){
-		if (x <= 0){
-		}
-		else if(x == 1){
-			e = 1;
-		}
-		else if (x == 2){
-			e = 2;
-		}
-	}	
-	else{
-		e = 2;
-		for(int i = 2; i <= x; ++i){
-			e += (1/factorial(i));
-		}
 	
+	for(int i = 0; i <= x; ++i){
+		double nfactorial = 1;
+		if(i != 1){
+			for(int j = i; j>1;--j){
+				nfactorial *= j;
+			}
+		}
+		e += 1/nfactorial; 
+		std::cout<<std::setprecision(15)<<e<<std::endl;
 	}
 
 return e;
