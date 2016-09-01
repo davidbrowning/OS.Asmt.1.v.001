@@ -56,12 +56,8 @@ return 0;
 int main(int argc, char* argv[])
 {
 	int optionNumber = 0;
-	if(std::string argument = argv[1]){ //pass the argument to a string for comparison.
-		int num = std::stoi(argv[2]);
-	}
-	else{ std::cout << "error! unexpedted arguments: " << std::endl;
-		return 1;
-	}
+	std::string argument = argv[1]; //pass the argument to a string for comparison.
+	int num = std::stoi(argv[2]);
     	if (argc > 3) {
         	std::cout << argv[3] <<" is invalid and will be skipped!" << std::endl;
     	}
