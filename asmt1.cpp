@@ -28,7 +28,6 @@ double e = 0;
 			}
 		}
 		e += 1/nfactorial; 
-		std::cout<<std::setprecision(15)<<e<<std::endl;
 	}
 
 return e;
@@ -48,7 +47,7 @@ fibonacci 1 1 2 3 5 8 13 21
 		first = second;
 		second = next;
 	}
-
+	std::cout << std::endl;
 
 
 return 0;
