@@ -8,6 +8,7 @@ double computePi(int x){
 */
 
 double pi = 3.1415926535897932384626433832795028841971;
+std::cout << std::setprecision(x) << pi << std::endl;
 return pi;
 }
 
@@ -29,7 +30,7 @@ double e = 0;
 		}
 		e += 1/nfactorial; 
 	}
-
+std::cout << std::setprecision(15) << e << std::endl;
 return e;
 }
 
@@ -41,7 +42,7 @@ fibonacci 1 1 2 3 5 8 13 21
 	int second = 1;
 	std::cout << first << " " << second << " ";
 	int next = 0;
-	for(int i = 0; i < x; ++i){
+	for(int i = 0; i < x-2; ++i){
 		next = first + second;
 		std::cout << next << " ";
 		first = second;
@@ -53,48 +54,48 @@ fibonacci 1 1 2 3 5 8 13 21
 return 0;
 }
 
+void standardErrorMessage(){
+	std::cout << "Expected arguments:" << std::endl;
+	std::cout << "-fib [n] computes fibonacci of [n]" <<std::endl;
+	std::cout << "-e [n] computes e to [n] iteration" << std::endl;
+	std::cout << "-pi [n] displayes pi to [n] digits" << std::endl;
+return;
+}
+
 int main(int argc, char* argv[])
 {
-	int optionNumber = 0;
-	if(std::string argument = argv[1]){ //pass the argument to a string for comparison.
-		int num = std::stoi(argv[2]);
-	}
-	else{ std::cout << "error! unexpedted arguments: " << std::endl;
+	if(argc != 2){
+		standardErrorMessage();
 		return 1;
 	}
-    	if (argc > 3) {
-        	std::cout << argv[3] <<" is invalid and will be skipped!" << std::endl;
-    	}
 
-	if(argument == "fib"){
-		optionNumber = 1;
-		//std::cout << optionNumber;
-	}
-	else if(argument == "e"){
-		optionNumber = 2;
-		//std::cout << optionNumber;
-	}
-	else if(argument == "pi"){
-		optionNumber = 3;
-		//std::cout << optionNumber; used for refrence.
-	}
-	else std::cout << "error! unexpedted arguments: " << argv[1] << "/" << argv[2] << std::endl;
-
-	if(argc >= 3){
-		std::cout << argv[1] << " will be computed with: " << argv[2] << "." << std::endl;
-		switch(optionNumber){
-			case(1): computeFibonacci(num);
-			 break;
-			case(2): {double ans = computeE(num);
-				std::cout << "e = " << std::setprecision(30) <<  ans << std::endl;
-			}
-			 break;
-			case(3):{ double pi =  computePi(num);
-					std::cout << std::setprecision(num) << pi << std::endl;
-				}
-			 break;
-			default: std::cout << "invalid argument" << std::endl;
+	std::string argument = "no";
+	int num = 0;
+	try{argument = argv[1];}
+		catch(...){
+			std::cout << "unexpected argument!" << std::endl;
+			standardErrorMessage();
+			return 1;
+		} //pass the argument to a string for comparison.
+	try{num = std::stoi(argv[2]);}
+		catch(...){
+			std::cout << "unexpected argument!" << std::endl;
+			standardErrorMessage();
+			return 1;
 		}
+	if(argument == "-fib"){
+		computeFibonacci(num);
 	}
+	else if(argument == "-e"){
+		computeE(num);
+	}
+	else if(argument == "-pi"){
+		computePi(num);
+	}
+	else{
+		standardErrorMessage();
+	}		
+	
 return 0;
 }
+
